@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+a{
+    color: inherit;
+}
+
+:root {
+    --header-height: 100px;
+
+    --bgcolor-normal: #fafafa;
+    --color-normal: #1a1a1a;
+    --bgcolor-lightdark: #eee;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Open-sans, Arial, sans-serif;
+    background-color: var(--bgcolor-normal);
+    color: var(--color-normal);
+}
+
+header{
+    position: sticky;
+    top: 0;
+
+    background-color: #333;
+    color: #eeeeee;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2em;
+    height: var(--header-height);
+}
+
+header nav a{
+    margin-left: 2em;
+}
+
+section {
+    height: calc(100dvh - var(--header-height));
+    display: grid;
+    place-content: center;
+    scroll-margin-top: var(--header-height);
+}
+
+section > * {
+    width: min(300px, 80vw);
+}
+
+section:nth-col(odd) {
+    background-color: var(--bgcolor-lightdark);
+}
+
+#hamburguesa {
+    background-color: transparent;
+    border: none;
+    display: none;
+}
+
+#hamburguesa > div {
+    background-color: #eee;
+    width: 32px;
+    height: 4px;
+}
+
+#hamburguesa > div:not(:last-child){
+    margin-bottom: 4px;
+}
+
+@media (max-width: 480px) {
+    /*section > *{
+        width: 80vw;
+    }*/
+
+    #hamburguesa {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+
+        position: absolute;
+        width: 150px;
+        bottom: -94px;
+        right: 0px;
+
+        padding: 1em;
+        text-align: center;
+        line-height: 1.2;
+
+        background-color: #333;
+    }
+
+    header nav.activo {
+        display: block;
+    }
+
+    header nav a {
+        margin: 0;
+    }
+}
